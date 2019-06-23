@@ -17,6 +17,8 @@ namespace PasswordManager
         public DataTable Select()
         {
             SqlConnection conn = new SqlConnection(myconnstrng);
+
+
             DataTable dt = new DataTable();
             try
             {
@@ -123,11 +125,11 @@ namespace PasswordManager
 
             try
             {
-                string sql = "DELETE FROM pm WHERE username=@username";
+                string sql = "DELETE FROM pm WHERE sno=@sno";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
-                cmd.Parameters.AddWithValue("@username", u.username);
+                cmd.Parameters.AddWithValue("@sno", u.sno);
                 conn.Open();
                 int rows = cmd.ExecuteNonQuery();
                 if (rows > 0)
@@ -152,7 +154,7 @@ namespace PasswordManager
             return isSuccess;
         }
         #endregion
-        #region Delete Data from DAtabase
+        #region DeleteAll Data from DAtabase
         public bool DeleteAll()
         {
             bool isSuccess = false;

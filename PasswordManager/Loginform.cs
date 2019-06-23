@@ -12,6 +12,8 @@ namespace PasswordManager
 {
     public partial class Form2 : Form
     {
+        mdetails mp = new mdetails();
+        mpfunc mfunc = new mpfunc();
         public Form2()
         {
             InitializeComponent();
@@ -29,7 +31,8 @@ namespace PasswordManager
 
         private void label3_Click(object sender, EventArgs e)
         {
-            if(passwordbox.Text.Trim()== GlobalClass.masterpassword)
+            mp.masterpassword = passwordbox.Text.Trim();
+            if(mfunc.verify(mp) == true)
             {
                 var n = new Manager();
                 n.ShowDialog();
@@ -39,6 +42,10 @@ namespace PasswordManager
             {
                 MessageBox.Show("Wrong Password!");
             }
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
         }
     }
 }

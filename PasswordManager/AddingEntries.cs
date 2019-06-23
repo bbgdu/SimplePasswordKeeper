@@ -37,7 +37,8 @@ namespace PasswordManager
                 bool ok = Func.Insert(p);
                 if(ok == true)
                 {
-                    MessageBox.Show("ADDED!");
+                    MessageBox.Show("ADDED!\nRefresh Helps!Please Click that.");
+                    this.Close();
                 }
                 else
                 {
